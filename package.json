@@ -1,0 +1,60 @@
+{
+  "name": "laravel-swagger-ai-generator",
+  "displayName": "Laravel Swagger AI Generator",
+  "description": "Generate Swagger documentation from Laravel files using Gemini AI",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "laravel-swagger-ai-generator.generateDocs",
+        "title": "Generate Swagger Documentation",
+        "category": "Laravel"
+      }
+    ],
+    "configuration": {
+      "title": "Laravel Swagger AI Generator",
+      "properties": {
+        "laravelSwaggerAi.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for Google's Gemini AI"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "glob": "^8.1.0",
+    "minimatch": "^3.1.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3"
+  }
+}
