@@ -10,8 +10,11 @@ export class LaravelParser {
     private async globAsync(pattern: string): Promise<string[]> {
         return new Promise<string[]>((resolve, reject) => {
             glob(pattern, { cwd: this.workspaceRoot }, (err: Error | null, matches: string[]) => {
-                if (err) reject(err);
-                else resolve(matches);
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(matches);
+                }
             });
         });
     }

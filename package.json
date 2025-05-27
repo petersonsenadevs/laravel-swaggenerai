@@ -17,6 +17,11 @@
         "command": "laravel-swagger-ai-generator.generateDocs",
         "title": "Generate Swagger Documentation",
         "category": "Laravel"
+      },
+      {
+        "command": "laravel-swagger-ai-generator.editApiKey",
+        "title": "Edit Gemini API Key",
+        "category": "Laravel"
       }
     ],
     "configuration": {

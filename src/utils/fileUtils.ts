@@ -1,64 +1,90 @@
-import * as vscode from 'vscode';
-import * as fs from 'fs/promises';
+import * as fs from 'fs';
 import * as path from 'path';
+import * as vscode from 'vscode';
 
-export async function saveSwaggerDoc(content: string, workspacePath: string): Promise<void> {
-    try {
-        const swaggerDir = path.join(workspacePath, 'swagger');
-        
-        // Crear directorio swagger si no existe
-        await fs.mkdir(swaggerDir, { recursive: true });
-        
-        // Guardar archivo YAML
-        const yamlPath = path.join(swaggerDir, 'swagger.yaml');
-        await fs.writeFile(yamlPath, content, 'utf-8');
-        
-        // Crear archivo HTML para visualización
-        const htmlContent = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>API Documentation</title>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@latest/swagger-ui.css">
-</head>
-<body>
-    <div id="swagger-ui"></div>
-    <script src="https://unpkg.com/swagger-ui-dist@latest/swagger-ui-bundle.js"></script>
-    <script>
-        window.onload = function() {
-            SwaggerUIBundle({
-                url: "./swagger.yaml",
-                dom_id: '#swagger-ui',
-                deepLinking: true,
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIBundle.SwaggerUIStandalonePreset
-                ]
-            });
+interface SwaggerFileOptions {
+    module?: string;
+    action?: string;
+    isBaseConfig?: boolean;
+    className?: string;
+}
+
+/**
+ * Guarda un archivo de documentación Swagger en formato PHP
+ */
+export function saveSwaggerDoc(
+    content: string, 
+    basePath: string, 
+    options: SwaggerFileOptions = {}
+): string {
+    // Construir la ruta del directorio base de anotaciones
+    const annotationsBase = path.join(basePath, 'app', 'Annotations', 'Swagger');
+
+    let targetDir: string;
+    let fileName: string;
+    let namespace: string;
+
+    if (options.isBaseConfig) {
+        // Para AnnotationsInfo.php
+        targetDir = annotationsBase;
+        fileName = 'AnnotationsInfo.php';
+        namespace = 'App\\Annotations\\Swagger';
+    } else {
+        // Para anotaciones de endpoints específicos
+        if (!options.module || !options.action) {
+            throw new Error('Module and action are required for endpoint annotations');
         }
-    </script>
-</body>
-</html>`;
-        
-        await fs.writeFile(path.join(swaggerDir, 'index.html'), htmlContent, 'utf-8');
-
-        // Abrir la documentación en el navegador integrado
-        const htmlUri = vscode.Uri.file(path.join(swaggerDir, 'index.html'));
-        vscode.commands.executeCommand('vscode.open', htmlUri);
-    } catch (error) {
-        console.error('Error saving Swagger documentation:', error);
-        throw error;
+        targetDir = path.join(annotationsBase, options.module, options.action);
+        fileName = `${options.className || `${options.action}Annotations`}.php`;
+        namespace = `App\\Annotations\\Swagger\\${options.module}\\${options.action}`;
     }
+
+    // Crear directorios necesarios
+    fs.mkdirSync(targetDir, { recursive: true });
+
+    // Envolver el contenido en una clase PHP
+    const classContent = generatePhpClass(content, namespace, fileName.replace('.php', ''));
+
+    // Guardar el archivo
+    const filePath = path.join(targetDir, fileName);
+    fs.writeFileSync(filePath, classContent, 'utf8');
+
+    // Mostrar y abrir el archivo generado
+    const fileUri = vscode.Uri.file(filePath);
+    vscode.window.showTextDocument(fileUri);
+
+    return filePath;
 }
 
+/**
+ * Genera el contenido de la clase PHP con el namespace y anotaciones correctas
+ */
+function generatePhpClass(annotations: string, namespace: string, className: string): string {
+    return `<?php
+
+namespace ${namespace};
+
+use OpenApi\\Annotations as OA;
+
+${annotations}
+class ${className}
+{
+    public function register() {}
+}
+`;
+}
+
+/**
+ * Obtiene la raíz del workspace abierto
+ */
 export function getWorkspaceRoot(): string | undefined {
-    const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (!workspaceFolders) {
-        throw new Error('No workspace folder found');
-    }
-    return workspaceFolders[0].uri.fsPath;
+    const folders = vscode.workspace.workspaceFolders;
+    return folders && folders.length > 0 ? folders[0].uri.fsPath : undefined;
 }
 
+/**
+ * Devuelve la configuración de la extensión
+ */
 export function getConfiguration(section: string): vscode.WorkspaceConfiguration {
     return vscode.workspace.getConfiguration(section);
 }
