@@ -18,27 +18,27 @@ export async function selectAIProvider() {
             {
                 label: 'Google Gemini',
                 value: 'gemini',
-                description: 'Modelo Gemini de Google',
-                detail: 'Recomendado para mejor rendimiento'
+                description: 'Google Gemini Model',
+                detail: 'Recommended for best performance'
             },
             {
                 label: 'OpenAI GPT-4',
                 value: 'openai',
                 description: 'GPT-4 de OpenAI',
-                detail: 'Mayor capacidad de contexto'
+                detail: 'Greater context capacity'
             },
             {
                 label: 'Anthropic Claude',
                 value: 'anthropic',
                 description: 'Claude de Anthropic',
-                detail: 'Excelente comprensión de código'
+                detail: 'Better context capacity'
             }
         ];
 
         // Seleccionar proveedor
         const selected = await vscode.window.showQuickPick(providers, {
-            placeHolder: 'Selecciona el proveedor de IA',
-            title: 'Cambiar Proveedor de IA'
+            placeHolder: 'Select the AI ​​​​provider 🧠',
+            title: 'Change AI Provider'
         });
 
         if (!selected) {
@@ -58,10 +58,10 @@ export async function selectAIProvider() {
                 password: true,
                 validateInput: (value) => {
                     if (!value) {
-                        return `La API key no puede estar vacía de ${selected.label}`;
+                        return `The API key cannot be empty. ${selected.label}`;
                     }
                     if (value.length < 10) {
-                        return 'La API key parece ser demasiado corta';
+                        return 'The API key seems to be too short 😅';
                     }
                     return null;
                 }

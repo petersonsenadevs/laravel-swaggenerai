@@ -15,27 +15,27 @@ export async function editApiKey() {
             {
                 label: 'Google Gemini',
                 value: 'gemini',
-                description: 'Modelo Gemini de Google',
+                description: 'Google Gemini Model',
                 configKey: 'geminiApiKey'
             },
             {
                 label: 'OpenAI GPT-4',
                 value: 'openai',
-                description: 'GPT-4 de OpenAI',
+                description: 'GPT-4',
                 configKey: 'openaiApiKey'
             },
             {
                 label: 'Anthropic Claude',
                 value: 'anthropic',
-                description: 'Claude de Anthropic',
+                description: 'Claude Anthropic',
                 configKey: 'anthropicApiKey'
             }
         ];
 
         // Seleccionar modelo
         const selectedModel = await vscode.window.showQuickPick(models, {
-            placeHolder: 'Selecciona el modelo para configurar su API key',
-            title: 'Configurar API Key'
+            placeHolder: 'Select the model to configure its API key',
+            title: 'API Key Configuration'
         });
 
         if (!selectedModel) {
@@ -47,15 +47,15 @@ export async function editApiKey() {
 
         // Solicitar nueva API key
         const newKey = await vscode.window.showInputBox({
-            prompt: `Ingresa tu API key para ${selectedModel.label}`,
+            prompt: `Enter your API key to ${selectedModel.label}`,
             value: currentKey,
             password: true,
             validateInput: (value) => {
                 if (!value) {
-                    return 'La API key no puede estar vacía';
+                    return 'The API key cannot be empty 😅';
                 }
                 if (value.length < 10) {
-                    return 'La API key parece ser demasiado corta';
+                    return 'The API key seems to be too short 😅';
                 }
                 return null;
             }
@@ -66,12 +66,12 @@ export async function editApiKey() {
             // Actualizar también el modelo seleccionado
             await config.update('selectedModel', selectedModel.value, true);
             vscode.window.showInformationMessage(
-                `API key de ${selectedModel.label} actualizada exitosamente`
+                `API key de ${selectedModel.label} successfully updated`
             );
         }
     } catch (error) {
         vscode.window.showErrorMessage(
-            `Error al actualizar la API key: ${error instanceof Error ? error.message : 'Error desconocido'}`
+            `Error updating API key: ${error instanceof Error ? error.message : 'Uknown error'}`
         );
     }
 }

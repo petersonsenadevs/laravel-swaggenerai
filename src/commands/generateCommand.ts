@@ -3,7 +3,6 @@ import * as path from 'path';
 import { LaravelParser } from '../services/laravelParser';
 import { getWorkspaceRoot, getConfiguration, saveSwaggerDoc } from '../utils/fileUtils';
 import { loadCache, saveCache, calculateFileHash } from '../cache/cacheManager';
-import { EndpointCache } from '../models/interfaces';
 import { AIServiceFactory } from '../services/AIServiceFactory';
 
 export async function generateDocs() {

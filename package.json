@@ -1,33 +1,36 @@
 {
-  "name": "laravel-swagger-ai-generator",
+  "name": "laravel-swaggenerai",
   "displayName": "Laravel Swagger AI Generator",
-  "description": "Generate Swagger documentation from Laravel files using Gemini AI",
+  "description": "Generate Swagger documentation from Laravel files using AI.",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
-    "Other"
+    "AI",
+    "Other",
+    "Snippets",
+    "Programming Languages"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "laravel-swagger-ai-generator.generateDocs",
-        "title": "Laravel Swagger: Generar documentación",
-        "category": "Extension"
+        "command": "laravel-swaggenerai.generateDocs",
+        "title": "Generate Swagger Documentation",
+        "category": "Laravel SwaggenerAI"
       },
       {
-        "command": "laravel-swagger-ai-generator.editApiKey",
-        "title": "Laravel Swagger: Editar API Key de los proveedores",
-        "category": "Extension"
+        "command": "laravel-swaggenerai.editApiKey",
+        "title": "Update API Key",
+        "category": "Laravel SwaggenerAI"
       },
      
       {
-    "command": "laravel-swagger-ai-generator.selectProvider",
-    "title": "Laravel Swagger: Seleccionar Proveedor de IA",
-    "category": "Extension"
+    "command": "laravel-swaggenerai.selectProvider",
+    "title": "Select AI Provider",
+    "category": "Laravel SwaggenerAI"
   }
     ],
    "configuration": {
@@ -37,26 +40,37 @@
                     "type": "string",
                     "enum": ["gemini", "openai", "anthropic"],
                     "default": "gemini",
-                    "description": "Proveedor de IA seleccionado"
+                    "description": "Selected AI model"
                 },
                 "laravelSwaggerAi.geminiApiKey": {
                     "type": "string",
                     "default": "",
-                    "description": "API Key para Google Gemini"
+                    "description": "Gemini API Key"
                 },
                 "laravelSwaggerAi.openaiApiKey": {
                     "type": "string",
                     "default": "",
-                    "description": "API Key para OpenAI"
+                    "description": "OpenAI API Key"
                 },
                 "laravelSwaggerAi.anthropicApiKey": {
                     "type": "string",
                     "default": "",
-                    "description": "API Key para Anthropic Claude"
+                    "description": "Anthropic API Key"
                 }
             }
         }
   },
+  "author": {
+    "name": "Peterson Sena",
+    
+    "url": "https://github.com/pupadevs"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petersonsenadevs/laravel-swaggenerai"
+  },
+  "license" : "MIT",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",

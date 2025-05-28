@@ -9,17 +9,17 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Registrar comandos
     const generateCommand = vscode.commands.registerCommand(
-        'laravel-swagger-ai-generator.generateDocs', 
+        'laravel-swaggenerai.generateDocs', 
         generateDocs
     );
 
 
     const editApiKeyCommand = vscode.commands.registerCommand(
-        'laravel-swagger-ai-generator.editApiKey', 
+        'laravel-swaggenerai-generator.editApiKey', 
         editApiKey
     );
        const selectProviderCommand = vscode.commands.registerCommand(
-        'laravel-swagger-ai-generator.selectProvider',
+        'laravel-swaggenerai.selectProvider',
         selectAIProvider
     );
 
