@@ -1,71 +1,82 @@
-# laravel-swagger-ai-generator README
+# Laravel SwaggenerAI (Swagger Generator)
 
-This is the README for your extension "laravel-swagger-ai-generator". After writing up a brief description, we recommend including the following sections.
+<p align="center">
+  <img src="images/icon.png" alt="Laravel SwaggenerAI" width="128" />
+</p>
 
-## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=pupadevs.laravel-swaggenerai">
+    <img src="https://img.shields.io/visual-studio-marketplace/v/pupadevs.laravel-swaggenerai.svg" alt="Version">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=pupadevs.laravel-swaggenerai">
+    <img src="https://img.shields.io/visual-studio-marketplace/i/pupadevs.laravel-swaggenerai.svg" alt="Installs">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=pupadevs.laravel-swaggenerai">
+    <img src="https://img.shields.io/visual-studio-marketplace/r/pupadevs.laravel-swaggenerai.svg" alt="Rating">
+  </a>
+</p>
 
-For example if there is an image subfolder under your extension project workspace:
+<p align="center">
+  <a href="https://www.buymeacoffee.com/petersonsena">
+    <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=petersonsena&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" alt="Buy Me A Coffee">
+  </a>
+</p>
 
-\!\[feature X\]\(images/feature-x.png\)
+Generate Swagger/OpenAPI documentation for your Laravel APIs using AI. Supports multiple AI providers and offers intelligent caching for optimal performance.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## 🚀 Features
 
-## Requirements
+![Demo](images/demo.gif)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### 🤖 Multiple AI Providers
+- **Google Gemini**: Optimal performance and free tier
+- **OpenAI GPT-4**: Enhanced context capacity
+- **Anthropic Claude**: Excellent code understanding
 
-## Extension Settings
+### 📝 Smart Generation
+- Automatic controller detection
+- Routes and requests analysis
+- Intelligent caching for performance
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### 🎨 Customization
+- Flexible AI provider selection
+- API key configuration
+- Multiple formatting options
 
-For example:
+## 🎯 Quick Usage
 
-This extension contributes the following settings:
+![Quick Usage](images/quick-usage.gif)
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+1. Install the extension
+2. Configure your preferred AI provider
+3. Generate documentation with one click!
 
-## Known Issues
+## 📖 Detailed Documentation
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Visit our [Wiki](https://github.com/petersonsenadevs/laravel-swaggenerai/wiki) for:
+- Step-by-step guides
+- Usage examples
+- Troubleshooting
+- Best practices
 
-## Release Notes
+## 🆕 Latest Updates
 
-Users appreciate release notes as you update your extension.
+### Version 1.0.0
+- ✨ Multi-provider support
+- 🔄 Enhanced caching system
+- 🎨 New intuitive interface
 
-### 1.0.0
+[View all changes](CHANGELOG.md)
 
-Initial release of ...
+## 💖 Support the Project
 
-### 1.0.1
+Love this extension? Consider supporting its development!
 
-Fixed issue #.
+- ⭐ Star on [GitHub](https://github.com/petersonsenadevs/laravel-swaggenerai)
+- ☕ [Buy me a coffee](https://www.buymeacoffee.com/petersonsenadevs)
+- 📣 Share with other developers
 
-### 1.1.0
+## 📝 License
 
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT © [Peterson Sena](https://github.com/petersonsenadevs)
