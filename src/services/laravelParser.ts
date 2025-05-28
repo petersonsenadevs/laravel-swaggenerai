@@ -3,6 +3,7 @@ import { readFile } from "fs/promises";
 import { LaravelFile, RelatedFiles } from "../types";
 import path = require("path");
 import glob = require("glob");
+import * as fs from 'fs';
 
 export class LaravelParser {
     constructor(private workspaceRoot: string) {}
@@ -62,7 +63,6 @@ export class LaravelParser {
                     requests: []
                 };
 
-                // Buscar rutas relacionadas
                 const relatedRoutes = files.filter(f => 
                     f.type === "route" && f.content.includes(controllerName)
                 );
@@ -70,7 +70,6 @@ export class LaravelParser {
                     group.routes = relatedRoutes;
                 }
 
-                // Buscar requests relacionados
                 const relatedRequests = files.filter(f =>
                     f.type === "request" && f.content.includes(controllerName)
                 );
@@ -85,5 +84,44 @@ export class LaravelParser {
         }
 
         return relatedGroups;
+    }
+
+    async findMissingAnnotations(files: LaravelFile[]): Promise<Map<string, string[]>> {
+        const missingAnnotations = new Map<string, string[]>();
+        const swaggerPath = path.join(this.workspaceRoot, 'app', 'Annotations', 'Swagger');
+
+        for (const file of files) {
+            if (file.type === "controller") {
+                const controllerName = path.basename(file.path, ".php").replace('Controller', '');
+                const controllerPath = path.join(swaggerPath, controllerName);
+                const missingMethods: string[] = [];
+
+                const methodRegex = /public function (\w+)\s*\([^)]*\)/g;
+                let match;
+                
+                while ((match = methodRegex.exec(file.content)) !== null) {
+                    const methodName = match[1];
+                    
+                    if (methodName === '__construct' || methodName.startsWith('__')) {
+                        continue;
+                    }
+
+                    const annotationFile = path.join(
+                        controllerPath, 
+                        `${methodName}Annotations.php`
+                    );
+                    
+                    if (!fs.existsSync(annotationFile)) {
+                        missingMethods.push(methodName);
+                    }
+                }
+
+                if (missingMethods.length > 0) {
+                    missingAnnotations.set(controllerName, missingMethods);
+                }
+            }
+        }
+
+        return missingAnnotations;
     }
 }
