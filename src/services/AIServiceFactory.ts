@@ -15,7 +15,7 @@ export class AIServiceFactory {
         const apiKey = config.get<string>(apiKeyConfig);
 
         if (!apiKey) {
-            throw new Error(`No se ha configurado la API key para ${selectedModel} 😭`);
+            throw new Error(`API key not found for ${selectedModel} 😭`);
         }
 
         try {
@@ -32,7 +32,7 @@ export class AIServiceFactory {
                     service = new AnthropicService(apiKey);
                     break;
                 default:
-                    throw new Error('Modelo no soportado, seleccione uno de los disponibles');
+                    throw new Error('Model not found');
             }
 
             await service.validateApiKey();

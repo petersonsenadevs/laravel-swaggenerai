@@ -2,7 +2,29 @@
   "name": "laravel-swaggenerai",
   "displayName": "Laravel Swagger AI Generator",
   "description": "Generate Swagger documentation from Laravel files using AI.",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "publisher": "pupadevs",
+    "icon": "images/swag.png",
+    "galleryBanner": {
+        "color": "#FF2D20",
+        "theme": "dark"
+    },
+   
+    
+    "keywords": [
+        "laravel",
+        "swagger",
+        "openapi",
+        "documentation",
+        "ai"
+    ],
+    "badges": [
+        {
+            "url": "https://img.shields.io/visual-studio-marketplace/v/pupadevs.laravel-swaggenerai.svg",
+            "href": "https://marketplace.visualstudio.com/items?itemName=pupadevs.laravel-swaggenerai",
+            "description": "Extension Version"
+        }
+    ],
   "engines": {
     "vscode": "^1.100.0"
   },

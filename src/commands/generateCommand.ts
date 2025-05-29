@@ -14,22 +14,22 @@ export async function generateDocs() {
 
         await vscode.window.withProgress({
             location: vscode.ProgressLocation.Notification,
-            title: "Generando documentación ",
+            title: "Generating documentation",
             cancellable: false
         }, async (progress) => {
-            progress.report({ message: "Inicializando servicio de IA 🤖..." });
+            progress.report({ message: "Initializing AI service 🤖..." });
             
             // Obtener el servicio de IA configurado
             const aiService = await AIServiceFactory.createService();
             
-            progress.report({ message: "Escaneando archivos Laravel... 📂" });
+            progress.report({ message: "Scanning Laravel files ... 📂" });
             const parser = new LaravelParser(workspaceRoot);
             const files = await parser.findAllLaravelFiles();
             
-            progress.report({ message: "Analizando relaciones 🩺..." });
+            progress.report({ message: "Finding related files 🩺..." });
             const relatedFiles = await parser.findRelatedFiles(files);
 
-            progress.report({ message: "Generando documentación 💾..." });
+            progress.report({ message: "Generating documentation 💾..." });
 
             // Cargar caché
             let cache = await loadCache(workspaceRoot);
@@ -86,7 +86,7 @@ export async function generateDocs() {
                     }
                 } catch (error) {
                     vscode.window.showWarningMessage(
-                        `Error procesando ${controllerName}: ${error instanceof Error ? error.message : String(error)}`
+                        `Error generating documentation for ${controllerName}: ${error instanceof Error ? error.message : String(error)}`
                     );
                 }
             }
@@ -96,7 +96,7 @@ export async function generateDocs() {
         });
 
         vscode.window.showInformationMessage(
-            'Documentación Swagger generada exitosamente 😊!'
+            'Documentation generated successfully 😊!'
         );
     } catch (error) {
         if (error instanceof Error) {

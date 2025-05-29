@@ -54,7 +54,7 @@ export async function selectAIProvider() {
 
         if (!hasApiKey) {
             const apiKey = await vscode.window.showInputBox({
-                prompt: `Ingresa tu API key para ${selected.label}`,
+                prompt: `Enter your API key ${selected.label}`,
                 password: true,
                 validateInput: (value) => {
                     if (!value) {
@@ -69,14 +69,14 @@ export async function selectAIProvider() {
 
             if (apiKey) {
                 await config.update(apiKeyConfig, apiKey, true);
-                vscode.window.showInformationMessage(`API key de ${selected.label} configurada exitosamente 🎉`);
+                vscode.window.showInformationMessage(`API key  ${selected.label} successfully updated 🎉`);
             }
         }
 
-        vscode.window.showInformationMessage(`Proveedor de IA cambiado a ${selected.label} exitosamente 🎉`);
+        vscode.window.showInformationMessage(`AI provider changed to ${selected.label} successfully 🎉`);
     } catch (error) {
         vscode.window.showErrorMessage(
-            `Error al cambiar el proveedor de IA: ${error instanceof Error ? error.message : 'Error desconocido'}`
+            `Error trying to change AI provider: ${error instanceof Error ? error.message : 'Unknown error'}`
         );
     }
 }

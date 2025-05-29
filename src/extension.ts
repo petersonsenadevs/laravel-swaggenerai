@@ -5,7 +5,7 @@ import { editApiKey } from './commands/editApiKeyCommand';
 import { selectAIProvider } from './commands/selectProviderCommand';
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('Laravel Swagger AI Generator is now active');
+    console.log('Laravel SwaggenerAI is now active');
 
     // Registrar comandos
     const generateCommand = vscode.commands.registerCommand(
@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
     const editApiKeyCommand = vscode.commands.registerCommand(
-        'laravel-swaggenerai-generator.editApiKey', 
+        'laravel-swaggenerai.editApiKey', 
         editApiKey
     );
        const selectProviderCommand = vscode.commands.registerCommand(

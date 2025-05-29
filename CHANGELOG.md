@@ -5,6 +5,12 @@ All notable changes to the "Laravel Swagger AI Generator" extension will be docu
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2024-05-29
+### Changed
+- Translated extension documentation to English
+- Updated README with English content
+- Updated configuration descriptions to English
+- Logo SwaggenerAI
 ## [1.0.0] - 2024-05-28
 ### Added
 - Support for multiple AI providers:
