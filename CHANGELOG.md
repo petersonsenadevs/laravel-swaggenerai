@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated README with English content
 - Updated configuration descriptions to English
 - Logo SwaggenerAI
+- demo.gif
 ## [1.0.0] - 2024-05-28
 ### Added
 - Support for multiple AI providers:
@@ -46,6 +47,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Swagger documentation generation
 - Basic VS Code commands
 
-[1.0.0]: https://github.com/pupadevs/laravel-swaggenerai/releases/tag/v1.0.0
-[0.2.0]: https://github.com/pupadevs/laravel-swaggenerai/releases/tag/v0.2.0
-[0.1.0]: https://github.com/pupadevs/laravel-swaggenerai/releases/tag/v0.1.0
+[1.0.0]: https://github.com/petersonsenadevs/laravel-swaggenerai/releases/tag/v1.0.0
