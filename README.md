@@ -1,8 +1,8 @@
 # Laravel SwaggenerAI
 
-<p align="center">
-  <img src="images/swag.png" alt="Laravel SwaggenerAI" width="128" />
-</p>
+
+  ![Laravel SwaggenerAI](images/swag.png)
+
 
 <p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=PESEDevs.laravel-swaggenerai">
@@ -50,9 +50,9 @@ Generate Swagger/OpenAPI documentation for your Laravel APIs using AI. Supports 
 
 ## Quick Usage
 
-<p align="center">
-  <img src="images/demo.gif" alt="Demo" />
-</p>
+
+  ![Demo](images/demo.gif)
+
 
 1️⃣ Install the extension  
 2️⃣ Configure your preferred AI provider  
