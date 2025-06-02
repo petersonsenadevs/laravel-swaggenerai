@@ -1,6 +1,6 @@
 {
   "name": "laravel-swaggenerai",
-  "displayName": "Laravel SwaggenerAI (AI L5 Swagger Generator)",
+  "displayName": "Laravel SwaggenerAI (L5 Swagger Generator)",
   "description": "Generate Swagger documentation from Laravel files using AI.",
   "version": "1.0.1",
   "publisher": "PESEDevs",
@@ -40,7 +40,9 @@
     "AI",
     "Other",
     "Snippets",
-    "Programming Languages"
+    "Programming Languages",
+    "Formatters"
+    
   ],
   "activationEvents": [],
   "main": "./out/extension.js",

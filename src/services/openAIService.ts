@@ -11,7 +11,7 @@ export class OpenAIService extends BaseAIService {
 
     public async generateContent(prompt: string): Promise<string> {
         const response = await this.openai.chat.completions.create({
-            model: "gpt-4-turbo-preview",
+            model: "gpt-4o",
             messages: [
                 {
                     role: "system",
