@@ -35,7 +35,7 @@ export async function generateDocs() {
             let cache = await loadCache(workspaceRoot);
 
             for (const group of relatedFiles) {
-                if (!group.controller) continue;
+                if (!group.controller) {continue;}
 
                 const controllerName = path.basename(group.controller.path, '.php')
                     .replace('Controller', '');

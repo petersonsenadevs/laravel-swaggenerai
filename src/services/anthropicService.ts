@@ -10,7 +10,7 @@ export class AnthropicService extends BaseAIService {
         this.anthropic = new Anthropic({ apiKey });
     }
 
-    // ...existing code...
+ 
     public async generateContent(prompt: string): Promise<string> {
         const response = await this.anthropic.messages.create({
             model: 'claude-3-opus-20240229',

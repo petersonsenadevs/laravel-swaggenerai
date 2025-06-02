@@ -30,7 +30,7 @@ function cleanPhpContent(content: string): string {
     const cleanedLines = lines.filter(line => {
         const trimmedLine = line.trim();
         if (trimmedLine.startsWith('namespace') || trimmedLine.startsWith('use OpenApi')) {
-            if (uniqueLines.has(trimmedLine)) return false;
+            if (uniqueLines.has(trimmedLine)){ return false;}
             uniqueLines.add(trimmedLine);
         }
         return true;

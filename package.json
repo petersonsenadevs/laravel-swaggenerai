@@ -1,32 +1,40 @@
 {
   "name": "laravel-swaggenerai",
-  "displayName": "Laravel Swagger AI Generator",
+  "displayName": "Laravel SwaggenerAI (AI L5 Swagger Generator)",
   "description": "Generate Swagger documentation from Laravel files using AI.",
   "version": "1.0.1",
-  "publisher": "pupadevs",
-    "icon": "images/swag.png",
-    "galleryBanner": {
-        "color": "#FF2D20",
-        "theme": "dark"
+  "publisher": "PESEDevs",
+  "icon": "images/swag.png",
+  "galleryBanner": {
+    "color": "#FF2D20",
+    "theme": "dark"
+  },
+  "keywords": [
+    "laravel",
+    "swagger",
+    "openapi",
+    "documentation",
+    "ai"
+  ],
+  "badges": [
+    {
+      "url": "https://img.shields.io/visual-studio-marketplace/v/PESEDevsaravel-swaggenerai.svg",
+      "href": "https://marketplace.visualstudio.com/items?itemName=PESEDevs.laravel-swaggenerai",
+      "description": "Extension Version"
     },
-   
-    
-    "keywords": [
-        "laravel",
-        "swagger",
-        "openapi",
-        "documentation",
-        "ai"
-    ],
-    "badges": [
-        {
-            "url": "https://img.shields.io/visual-studio-marketplace/v/pupadevs.laravel-swaggenerai.svg",
-            "href": "https://marketplace.visualstudio.com/items?itemName=pupadevs.laravel-swaggenerai",
-            "description": "Extension Version"
-        }
-    ],
+    {
+      "url": "https://img.shields.io/visual-studio-marketplace/i/PESEDevs.laravel-swaggenerai.svg",
+      "href": "https://marketplace.visualstudio.com/items?itemName=PESEDevs.laravel-swaggenerai",
+      "description": "Install Count"
+    },
+    {
+      "url": "https://img.shields.io/github/license/PESEDevs/laravel-swaggenerai.svg",
+      "href": "https://github.com/petersonsenadevs/laravel-swaggenerai/blob/main/LICENSE",
+      "description": "License"
+    }
+  ],
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.96.0"
   },
   "categories": [
     "AI",
@@ -48,51 +56,49 @@
         "title": "Update API Key",
         "category": "Laravel SwaggenerAI"
       },
-     
       {
-    "command": "laravel-swaggenerai.selectProvider",
-    "title": "Select AI Provider",
-    "category": "Laravel SwaggenerAI"
-  }
+        "command": "laravel-swaggenerai.selectProvider",
+        "title": "Select AI Provider",
+        "category": "Laravel SwaggenerAI"
+      }
     ],
-   "configuration": {
-            "title": "Laravel Swagger AI Generator",
-            "properties": {
-                "laravelSwaggerAi.selectedModel": {
-                    "type": "string",
-                    "enum": ["gemini", "openai", "anthropic"],
-                    "default": "gemini",
-                    "description": "Selected AI model"
-                },
-                "laravelSwaggerAi.geminiApiKey": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Gemini API Key"
-                },
-                "laravelSwaggerAi.openaiApiKey": {
-                    "type": "string",
-                    "default": "",
-                    "description": "OpenAI API Key"
-                },
-                "laravelSwaggerAi.anthropicApiKey": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Anthropic API Key"
-                }
-            }
+    "configuration": {
+      "title": "Laravel Swagger AI Generator",
+      "properties": {
+        "laravelSwaggerAi.selectedModel": {
+          "type": "string",
+          "enum": ["gemini", "openai", "anthropic"],
+          "default": "gemini",
+          "description": "Selected AI model"
+        },
+        "laravelSwaggerAi.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Gemini API Key"
+        },
+        "laravelSwaggerAi.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key"
+        },
+        "laravelSwaggerAi.anthropicApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Anthropic API Key"
         }
+      }
+    }
   },
   "author": {
     "name": "Peterson Sena",
-    
-    "url": "https://github.com/pupadevs"
-    
+    "url": "https://github.com/petersonsenadevs",
+    "website": "https://petersonsena.com"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/petersonsenadevs/laravel-swaggenerai"
   },
-  "license" : "MIT",
+  "license": "MIT",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
@@ -114,7 +120,7 @@
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.100.0",
+    "@types/vscode": "^1.96.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
     "@vscode/test-cli": "^0.0.10",
