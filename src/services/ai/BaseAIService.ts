@@ -8,9 +8,9 @@ export abstract class BaseAIService implements IAIService {
     protected readonly RETRY_DELAY = 2000;
 
   constructor(protected apiKey: string) {
-        if (!apiKey) {
+    /*     if (!apiKey) {
             throw new Error("API key is required");
-        }
+        } */
     }
 
     abstract generateContent(prompt: string): Promise<string>;
@@ -77,6 +77,11 @@ export abstract class BaseAIService implements IAIService {
             .basename(files.controller.path, '.php')
             .replace('Controller', '');
 
+        // Detectar si el provider es Ollama (por nombre de clase)
+        const isOllama = this.constructor.name.toLowerCase().includes('ollama');
+        // Delay recomendado para rate limit (en ms)
+        const cloudDelay = 2000;
+
         let match;
         while ((match = methodRegex.exec(files.controller.content)) !== null) {
             const methodName = match[1];
@@ -99,7 +104,10 @@ export abstract class BaseAIService implements IAIService {
                     content,
                 });
 
-                await new Promise(res => setTimeout(res, 1000));
+                // Solo aplicar delay si NO es Ollama
+                if (!isOllama) {
+                    await new Promise(res => setTimeout(res, cloudDelay));
+                }
             } catch (err) {
                 vscode.window.showWarningMessage(
                     `Error generando documentación para ${methodName}: ${err}`

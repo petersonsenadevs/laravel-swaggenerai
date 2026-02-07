@@ -42,7 +42,6 @@
     "Snippets",
     "Programming Languages",
     "Formatters"
-    
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -62,6 +61,11 @@
         "command": "laravel-swaggenerai.selectProvider",
         "title": "Select AI Provider",
         "category": "Laravel SwaggenerAI"
+      },
+      {
+        "command": "laravel-swaggenerai.ollamaCommands",
+        "title": "Ollama Commands",
+        "category": "Laravel SwaggenerAI"
       }
     ],
     "configuration": {
@@ -69,7 +73,12 @@
       "properties": {
         "laravelSwaggerAi.selectedModel": {
           "type": "string",
-          "enum": ["gemini", "openai", "anthropic"],
+          "enum": [
+            "gemini",
+            "openai",
+            "anthropic",
+            "ollama"
+          ],
           "default": "gemini",
           "description": "Selected AI model"
         },
@@ -87,8 +96,30 @@
           "type": "string",
           "default": "",
           "description": "Anthropic API Key"
+        },
+        "laravelSwaggerAi.ollamaModel": {
+          "type": "string",
+          "default": "llama2",
+          "description": "Selected Ollama model name"
         }
       }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "laravelSwaggeneraiSidebar",
+          "title": "Laravel Swagger",
+          "icon": "images/swag.png"
+        }
+      ]
+    },
+    "views": {
+      "laravelSwaggeneraiSidebar": [
+        {
+          "id": "laravelSwaggenerai.folderSelectionView",
+          "name": "Escaneo Laravel"
+        }
+      ]
     }
   },
   "author": {

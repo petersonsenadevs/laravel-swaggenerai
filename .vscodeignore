@@ -1,7 +1,6 @@
 .vscode/**
 .vscode-test/**
 src/**
-node_modules/
 test/
 docs/
 .vscode-test.*
@@ -12,3 +11,6 @@ docs/
 **/*.map
 **/*.ts
 out/test/**
+.git/**
+.github/**
+wiki/**

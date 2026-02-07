@@ -14,17 +14,12 @@ export class OpenAIService extends BaseAIService {
             model: "gpt-4o",
             messages: [
                 {
-                    role: "system",
-                    content: "Eres un experto en Laravel y Swagger/OpenAPI. Genera código PHP con anotaciones OpenAPI precisas y bien estructuradas."
-                },
-                {
                     role: "user",
                     content: prompt
                 }
             ],
             temperature: 0.1,
         });
-
         return response.choices[0].message.content || '';
     }
 

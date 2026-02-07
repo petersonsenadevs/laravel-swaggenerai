@@ -18,12 +18,11 @@ export class AnthropicService extends BaseAIService {
             messages: [
                 {
                     role: 'user',
-                    content: `Eres un experto en Laravel y Swagger/OpenAPI. Genera código PHP con anotaciones OpenAPI precisas y bien estructuradas. ${prompt}`
+                    content: prompt
                 }
             ],
             temperature: 0.1,
         });
-
         return response.content[0].text;
     }
 
