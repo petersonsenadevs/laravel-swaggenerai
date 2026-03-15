@@ -2,7 +2,7 @@
   "name": "laravel-swaggenerai",
   "displayName": "Laravel SwaggenerAI (L5 Swagger Generator)",
   "description": "Generate Swagger documentation from Laravel files using AI.",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "publisher": "PESEDevs",
   "icon": "images/swag.png",
   "galleryBanner": {
@@ -14,11 +14,18 @@
     "swagger",
     "openapi",
     "documentation",
-    "ai"
+    "ai",
+    "ollama",
+    "gemini",
+    "openai",
+    "anthropic",
+    "api",
+    "php",
+    "l5-swagger"
   ],
   "badges": [
     {
-      "url": "https://img.shields.io/visual-studio-marketplace/v/PESEDevsaravel-swaggenerai.svg",
+      "url": "https://img.shields.io/visual-studio-marketplace/v/PESEDevs.laravel-swaggenerai.svg",
       "href": "https://marketplace.visualstudio.com/items?itemName=PESEDevs.laravel-swaggenerai",
       "description": "Extension Version"
     },
@@ -28,7 +35,7 @@
       "description": "Install Count"
     },
     {
-      "url": "https://img.shields.io/github/license/PESEDevs/laravel-swaggenerai.svg",
+      "url": "https://img.shields.io/github/license/petersonsenadevs/laravel-swaggenerai.svg",
       "href": "https://github.com/petersonsenadevs/laravel-swaggenerai/blob/main/LICENSE",
       "description": "License"
     }
